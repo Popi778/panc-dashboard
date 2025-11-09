@@ -1,11 +1,9 @@
-import DashboardView from '@/components/dashboard/dashboard-view'
-import Footer from '@/components/footer/footer'
-
+import DashboardOverView from '@/components/dashboard/dashboard-exb'
 
 function MainDashboard() {
   return (
     <div>
-       
+      <DashboardOverView />
     </div>
   )
 }
