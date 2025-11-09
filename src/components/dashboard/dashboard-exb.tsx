@@ -6,7 +6,7 @@ import TableDashboard from "./table";
 
 export default function DashboardOverView() {
   return (
-    <div className="container mx-auto py-10 px-19">
+    <div className="container mx-auto px-6 py-6 md:px-20 lg:py-5">
       <HeaderDashboard />
       {/* Layout responsivo: 
         - Telas pequenas: Carrossel em cima, Info embaixo.

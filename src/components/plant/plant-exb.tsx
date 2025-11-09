@@ -4,7 +4,7 @@ import PlantSearch from './plant-search'
 
 export default function DashboardPage() {
   return (
-    <div className="container mx-auto py-32 px-19">
+    <div className="container mx-auto px-6 py-6 md:px-10 lg:py-32">
       <PlantSearch />
       {/* Layout responsivo: 
         - Telas pequenas: Carrossel em cima, Info embaixo.
