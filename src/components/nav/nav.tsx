@@ -31,7 +31,7 @@ function Nav() {
   };
 
   return (
-    <nav className="bg-muted text-primary-black shadow-md sticky top-0 z-50">
+    <nav className="bg-black text-white shadow-md sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4">
         {/* Container principal - logo e botão mobile */}
         <div className="flex justify-between items-center h-16">
@@ -55,8 +55,8 @@ function Nav() {
                 key={item.path}
                 href={item.path} // <Link> usa a prop 'href'
                 className={`${isActive(item.path) 
-                  ? 'text-[#003C43] border-b-2 border-[#003C43]' 
-                  : 'text-primary-black hover:text-[#003C43]/90'} 
+                  ? 'text-[#b6ca59] border-b-2 border-[#b6ca59]' 
+                  : 'text-primary-black hover:text-[#b6ca59]'} 
                   font-medium pb-1 transition duration-300`}
               >
                 {item.label}
