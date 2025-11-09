@@ -8,7 +8,7 @@ export default function LoginPage() {
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <a href="/home" className="flex items-center gap-2 font-medium">
-            <div className="text-primary-black flex size-8 items-center justify-center rounded-md">
+            <div className="text-primary flex size-8 items-center justify-center rounded-md">
               <MoveLeft className="size-6" />
             </div>
             Voltar

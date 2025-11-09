@@ -4,7 +4,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-muted text-primary-black py-6 flex justify-center">
+    <footer className="bg-primary text-white py-6 flex justify-center">
       <div className="text-center space-y-2">
         {/* Ícones de redes sociais */}
         <div className="flex justify-center gap-5 text-xl">
@@ -13,7 +13,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
-            className="hover:text-[#003C43] transition-colors duration-300"
+            className="hover:text-[#b6ca59] transition-colors duration-300"
           >
             <FaThreads />
           </a>
@@ -22,7 +22,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="X (Twitter)"
-            className="hover:text-[#003C43] focus:outline-none focus:ring-2 focus:ring-white rounded"
+            className="hover:text-[#b6ca59] focus:outline-none focus:ring-2 focus:ring-white rounded"
           >
             <FaYoutube/>
           </a>
@@ -31,7 +31,7 @@ function Footer() {
             target="https://www.instagram.com/PANCSMARILIA"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="hover:text-[#003C43] focus:outline-none focus:ring-2 focus:ring-white rounded"
+            className="hover:text-[#b6ca59] focus:outline-none focus:ring-2 focus:ring-white rounded"
           >
             <FaInstagram />
           </a>
@@ -42,7 +42,7 @@ function Footer() {
           <p>
             <a
               href="/fale-conosco"
-              className=" hover:text-[#003C43] focus:outline-none focus:ring-2 focus:ring-white rounded"
+              className=" hover:text-[#b6ca59] focus:outline-none focus:ring-2 focus:ring-white rounded"
             >
               Fale Conosco
             </a>
@@ -50,7 +50,7 @@ function Footer() {
           <p>
             <a
               href="/politica-de-privacidade"
-              className=" hover:text-[#003C43] focus:outline-none focus:ring-2 focus:ring-white rounded"
+              className=" hover:text-[#b6ca59] focus:outline-none focus:ring-2 focus:ring-white rounded"
             >
               Política de Privacidade
             </a>

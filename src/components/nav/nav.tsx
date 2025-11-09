@@ -31,7 +31,7 @@ function Nav() {
   };
 
   return (
-    <nav className="bg-black text-white shadow-md sticky top-0 z-50">
+    <nav className="bg-primary text-white shadow-md sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4">
         {/* Container principal - logo e botão mobile */}
         <div className="flex justify-between items-center h-16">
