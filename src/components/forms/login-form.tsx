@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 import {
   Field,
   FieldDescription,
@@ -15,6 +16,10 @@ export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
+  const router = useRouter();
+  const handledLogin = () =>{
+    router.push("/dashboard")
+  }
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props}>
       <FieldGroup>
@@ -41,7 +46,7 @@ export function LoginForm({
           <Input id="password" type="password" required />
         </Field>
         <Field>
-          <Button type="submit">Login</Button>
+          <Button onClick={handledLogin}>Login</Button>
         </Field>
         <FieldSeparator>Or continue with</FieldSeparator>
         <Field>
