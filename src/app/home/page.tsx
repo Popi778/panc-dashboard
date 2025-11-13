@@ -15,6 +15,8 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
+import Nav from '@/components/nav/nav'
+import Footer from '@/components/footer/footer'
 
 // --- DADOS DE EXEMPLO (MOCK DATA) ---
 // Em um app real, você buscaria isso de um CMS ou API
@@ -59,10 +61,9 @@ const mockRecipes = [
  */
 export default function HomePage() {
   return (
-    // O layout.tsx já aplica 'flex-1' ao 'main',
-    // então não precisamos de classes de altura aqui.
+    
     <main className="w-full">
-      
+      <Nav />
       {/* --- Seção 1: Sobre o Projeto --- */}
       <section className="container mx-auto px-6 py-20 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -166,7 +167,7 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
+    <Footer />      
     </main>
   );
 }
