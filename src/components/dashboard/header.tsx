@@ -1,6 +1,6 @@
 "use client" // Componente com botões interativos (onClick)
 
-import React from "react"
+import React, { useState } from "react"
 import {
   Card,
   CardContent,
@@ -10,40 +10,74 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Power, RefreshCw, Download } from "lucide-react" // Ícones para as ações
+import { Power, RefreshCw, Download, Loader2 } from "lucide-react" 
+import { toast } from "sonner"
 
-/**
- * HeaderDashboard
- * Exibe um conjunto de "Cards de Ação Rápida" para o dashboard.
- */
 function HeaderDashboard() {
 
-  // --- Funções de Exemplo ---
-  // Em um app real, elas fariam chamadas de API
+  const [isBombaLoading, setIsBombaLoading] = useState(false)
+  const [isColetaLoading, setIsColetaLoading] = useState(false)
+  const [isCsvLoading, setIsCsvLoading] = useState(false)
+
   
-  const handleLigarBomba = () => {
-    console.log("Enviando comando: LIGAR BOMBA")
-    // Lógica de API para ligar a bomba aqui
-    // Você pode usar um 'toast' do shadcn para notificação
-    alert("Comando para ligar a bomba enviado! (Simulação)")
+  const handleLigarBomba = async () => {
+    console.log("Enviando comando: LIGAR BOMBA");
+    setIsBombaLoading(true);
+    const apiUrl = 'http://localhost:5000/ligar-bomba';
+    const dados = { acao: 'L' };
+
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500)); 
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados) 
+      });
+
+      if (response.ok) {
+        // 3. API ATUALIZADA: Mais simples!
+        toast.success("Sucesso! ✅", {
+          description: "Comando para ligar a bomba foi enviado.",
+        })
+      } else {
+        // 4. API ATUALIZADA: toast.error() para erros
+        toast.error("Erro no Servidor", {
+          description: "Falha ao enviar comando. Tente novamente.",
+        })
+      }
+    } catch (error) {
+      toast.error("Erro de Rede!", {
+        description: "Não foi possível conectar ao servidor.",
+      })
+    } finally {
+      setIsBombaLoading(false);
+    }
   }
 
-  const handleReiniciarColeta = () => {
+  const handleReiniciarColeta = async () => {
     console.log("Enviando comando: REINICIAR COLETA")
-    // Lógica de API...
-    alert("Sensores reiniciados! (Simulação)")
+    setIsColetaLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setIsColetaLoading(false);
+    
+    toast.info("Coleta Reiniciada 🔄", {
+      description: "Os sensores estão fazendo uma nova leitura.",
+    })
   }
 
-  const handleExportarCSV = () => {
+  const handleExportarCSV = async () => {
     console.log("Iniciando download do CSV...")
-    // Lógica para buscar e baixar o CSV aqui
-    alert("Download do CSV iniciado! (Simulação)")
+    setIsCsvLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 800));
+    setIsCsvLoading(false);
+    
+    toast("Download Iniciado 📄", {
+      description: "Seu arquivo .csv está sendo preparado.",
+    })
   }
-  // --- Fim das Funções de Exemplo ---
 
-
+  // --- O JSX (sem alterações) ---
   return (
-    // Um grid responsivo para os cartões de ação
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       
       {/* Card 1: Ligar Bomba */}
@@ -58,12 +92,19 @@ function HeaderDashboard() {
           </p>
         </CardContent>
         <CardFooter>
-          {/* Usamos a variante 'destructive' para ações perigosas, 
-              mas aqui 'primary' (padrão) ou 'secondary' faz sentido.
-              Vamos usar 'default' (verde) para 'ligar'.
-          */}
-          <Button size="sm" onClick={handleLigarBomba}>
-            Ativar Bomba
+          <Button 
+            size="sm" 
+            onClick={handleLigarBomba} 
+            disabled={isBombaLoading} 
+          >
+            {isBombaLoading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Ativando...
+              </>
+            ) : (
+              "Ativar Bomba"
+            )}
           </Button>
         </CardFooter>
       </Card>
@@ -80,8 +121,20 @@ function HeaderDashboard() {
           </p>
         </CardContent>
         <CardFooter>
-          <Button size="sm" variant="outline" onClick={handleReiniciarColeta}>
-            Reiniciar
+          <Button 
+            size="sm" 
+            variant="outline" 
+            onClick={handleReiniciarColeta} 
+            disabled={isColetaLoading}
+          >
+            {isColetaLoading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Reiniciando...
+              </>
+            ) : (
+              "Reiniciar"
+            )}
           </Button>
         </CardFooter>
       </Card>
@@ -98,8 +151,20 @@ function HeaderDashboard() {
           </p>
         </CardContent>
         <CardFooter>
-          <Button size="sm" variant="outline" onClick={handleExportarCSV}>
-            Download
+          <Button 
+            size="sm" 
+            variant="outline" 
+            onClick={handleExportarCSV} 
+            disabled={isCsvLoading}
+          >
+            {isCsvLoading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Baixando...
+              </>
+            ) : (
+              "Download"
+            )}
           </Button>
         </CardFooter>
       </Card>
