@@ -17,14 +17,15 @@ import {
 } from "@/components/ui/avatar"
 import Nav from '@/components/nav/nav'
 import Footer from '@/components/footer/footer'
+import { url } from 'inspector'
 
 // --- DADOS DE EXEMPLO (MOCK DATA) ---
 // Em um app real, você buscaria isso de um CMS ou API
 const mockParticipants = [
-  { name: "Mariana Silva", role: "Pessoa Desenvolvedora", fallback: "MS" },
-  { name: "João Cardia", role: "Pesquisador (TI)", fallback: "JS" },
-  { name: "Maria Oliveira", role: "Pesquisadora (Biologia)", fallback: "MO" },
-  { name: "Carlos Souza", role: "Voluntário", fallback: "CS" },
+  { name: "Juliana Audi Giannoni", role: "Coordenadora", fallback: "JG", url : "https://res.cloudinary.com/dwkzysoyd/image/upload/v1763069633/photo_2025-11-13_18-33-21_k9pp1x.jpg"},
+  { name: "João Cardia", role: "Pesquisador (TI)", fallback: "JS", url: "https://res.cloudinary.com/dwkzysoyd/image/upload/v1763070149/joao_bvsoeg.png" },
+  { name: "Maria Oliveira", role: "Pesquisadora (Biologia)", fallback: "MO", url: "https://res.cloudinary.com/dwkzysoyd/image/upload/v1763069633/photo_2025-11-13_18-33-21_k9pp1x.jpg" },
+  { name: "Carlos Souza", role: "Voluntário", fallback: "CS", url: "https://res.cloudinary.com/dwkzysoyd/image/upload/v1763070149/joao_bvsoeg.png" },
   { name: "Carlos Souza", role: "Voluntário", fallback: "CS" },
   { name: "Carlos Souza", role: "Voluntário", fallback: "CS" },
   { name: "Carlos Souza", role: "Voluntário", fallback: "CS" },
@@ -75,7 +76,7 @@ export default function HomePage() {
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
               Este é um espaço dedicado à pesquisa e disseminação das
               Plantas Alimentícias Não Convencionais (PANC), sob a coordenação
-              da Profª Drª .....
+              da Profª Drª Juliana Audi Giannoni.
             </p>
             <p className="mt-4 text-muted-foreground">
               Nossa plataforma cataloga, monitora e explora o potencial
@@ -117,7 +118,7 @@ export default function HomePage() {
             {mockParticipants.map((person) => (
               <div key={person.name} className="flex flex-col items-center">
                 <Avatar className="h-24 w-24 md:h-32 md:w-32 border-4 border-white dark:border-gray-800 shadow-lg">
-                  <AvatarImage src={person.role} alt={person.name} />
+                  <AvatarImage src={person.url} alt={person.name} />
                   <AvatarFallback className="text-3xl">{person.fallback}</AvatarFallback>
                 </Avatar>
                 <h3 className="mt-4 font-semibold text-lg">{person.name}</h3>
