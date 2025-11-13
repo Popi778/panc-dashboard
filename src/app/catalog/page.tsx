@@ -8,9 +8,7 @@ import React from 'react'
 function HomePage() {
   return (
     <div>
-      <Nav />
       <DashboardPage />
-      <Footer />
     </div>
   )
 }

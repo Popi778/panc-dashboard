@@ -63,7 +63,6 @@ export default function HomePage() {
   return (
     
     <main className="w-full">
-      <Nav />
       {/* --- Seção 1: Sobre o Projeto --- */}
       <section className="container mx-auto px-6 py-20 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

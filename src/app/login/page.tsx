@@ -25,7 +25,6 @@ export default function LoginPage() {
       <div className="bg-muted relative hidden lg:block">
       </div>
     </div>
-    <Footer />
     </>
     
   )
