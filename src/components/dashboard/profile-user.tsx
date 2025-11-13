@@ -2,6 +2,7 @@
 
 import React from "react"
 import { MoreHorizontal } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 import {
   Avatar,
@@ -21,6 +22,14 @@ import {
 
 
 export function NavUser() {
+
+  const router = useRouter();
+  const handleLogout = () =>{
+    router.push("/login")
+  }
+  const handleConfig = () =>{
+    window.alert("Página ainda não criada.")
+  }
   return (
     <div className="border-t border-gray-700 p-4"> {/* Borda sutil acima */}
       <div className="flex items-center justify-between">
@@ -49,9 +58,9 @@ export function NavUser() {
             <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Perfil</DropdownMenuItem>
-            <DropdownMenuItem>Configurações</DropdownMenuItem>
+            <DropdownMenuItem onClick={handleConfig}>Configurações</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Sair</DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>Sair</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
